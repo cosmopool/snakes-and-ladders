@@ -16,7 +16,7 @@ void main() {
     expect(game.player1.position, 38);
   });
 
-  test('player sould remain on empty tile when no title left to walk', () {
+  test('player sould remain on empty tile when no title left to move', () {
     Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
 
@@ -58,5 +58,10 @@ void main() {
 
   test('should play again on double roll', () {});
 
-  test('should decrease player position when hit final tile and still has tiles left to walk', () {});
+  test('should decrease player position when hit final tile but still has tiles left to move', () {});
+  test('should win the game when hit the final tile with no tiles left to move', () {});
+
+  test('should win the game when hit the final tile with double dice', () {});
+
+  test('should win the game when hit the final tile with no double dice', () {});
 }
