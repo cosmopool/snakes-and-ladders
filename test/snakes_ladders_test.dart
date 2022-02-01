@@ -87,14 +87,21 @@ void main() {
     Player player1 = Player(1);
     Player player2 = Player(2);
     SnakesLadders game = SnakesLadders(board, player1, player2);
-    
+
     game.play(1, 2);
 
     expect(game.playerTurn, 2);
   });
 
-  test('should decrease player position when hit final tile but still has tiles left to move', () {});
-  test('should win the game when hit the final tile with no tiles left to move', () {});
+  test('position should never be greater then 100', () {
+    Player player = Player.onPosition(94, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    game.play(8, 2);
+
+    expect(player.position, 96);
+  });
+
 
   test('should win the game when hit the final tile with double dice', () {});
 
