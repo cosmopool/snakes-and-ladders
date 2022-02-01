@@ -9,11 +9,41 @@ void main() {
   test('should increase player position by 36 when hit ladder 1 tile', () {
     Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
-    
+
     // go to tile 2
     game.play(1, 1);
 
     expect(game.player1.position, 38);
+  });
+
+  test('should increase player position by 7 when hit ladder 2 tile', () {
+    Player player = Player.onPosition(0, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    // go to tile 7
+    game.play(1, 6);
+
+    expect(game.player1.position, 14);
+  });
+
+  test('should decrease player position by 10 when hit snake 1 tile', () {
+    Player player = Player.onPosition(14, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    // go to tile 16
+    game.play(1, 1);
+
+    expect(game.player1.position, 6);
+  });
+
+  test('should decrease player position by 21 when hit snake 2 tile', () {
+    Player player = Player.onPosition(42, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    // go to tile 46
+    game.play(1, 3);
+
+    expect(game.player1.position, 25);
   });
 
   test('player sould remain on empty tile when no title left to move', () {
@@ -24,36 +54,6 @@ void main() {
     game.play(2, 1);
 
     expect(game.player1.position, 3);
-  });
-
-  test('should increase player position by 7 when hit ladder 2 tile', () {
-    Player player = Player.onPosition(0, 1);
-    SnakesLadders game = SnakesLadders(board, player, player);
-    
-    // go to tile 7
-    game.play(1, 6);
-
-    expect(game.player1.position, 14);
-  });
-
-  test('should decrease player position by 10 when hit snake 1 tile', () {
-    Player player = Player.onPosition(14, 1);
-    SnakesLadders game = SnakesLadders(board, player, player);
-    
-    // go to tile 16
-    game.play(1, 1);
-
-    expect(game.player1.position, 6);
-  });
-
-  test('should decrease player position by 21 when hit snake 2 tile', () {
-    Player player = Player.onPosition(42, 1);
-    SnakesLadders game = SnakesLadders(board, player, player);
-    
-    // go to tile 46
-    game.play(1, 3);
-
-    expect(game.player1.position, 25);
   });
 
   test('should play again on double dice', () {
