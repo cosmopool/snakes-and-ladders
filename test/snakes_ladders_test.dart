@@ -36,6 +36,7 @@ void main() {
 
     expect(game.player1.position, 14);
   });
+
   test('should decrease player position by 10 when hit snake 1 tile', () {
     Player player = Player.onPosition(14);
     SnakesLadders game = SnakesLadders(board, player, player);
@@ -45,14 +46,13 @@ void main() {
 
     expect(game.player1.position, 6);
   });
+
   test('should decrease player position by 21 when hit snake 2 tile', () {
     Player player = Player.onPosition(42);
     SnakesLadders game = SnakesLadders(board, player, player);
-    print('player position before: ${game.player1.position}');
     
     // go to tile 46
     game.play(1, 3);
-    print('player position after: ${game.player1.position}');
 
     expect(game.player1.position, 25);
   });
