@@ -56,7 +56,26 @@ void main() {
     expect(game.player1.position, 25);
   });
 
-  test('should play again on double roll', () {});
+  test('should play again on double dice', () {
+    Player player1 = Player(1);
+    Player player2 = Player(2);
+    SnakesLadders game = SnakesLadders(board, player1, player2);
+    
+    // go to tile 46
+    game.play(1, 1);
+
+    expect(game.playerTurn, 1);
+  });
+
+  test('should pass turn on no double dice', () {
+    Player player1 = Player(1);
+    Player player2 = Player(2);
+    SnakesLadders game = SnakesLadders(board, player1, player2);
+    
+    game.play(1, 2);
+
+    expect(game.playerTurn, 2);
+  });
 
   test('should decrease player position when hit final tile but still has tiles left to move', () {});
   test('should win the game when hit the final tile with no tiles left to move', () {});
