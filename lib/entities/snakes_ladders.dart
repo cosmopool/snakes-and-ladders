@@ -20,9 +20,12 @@ class SnakesLadders {
     final int roll = dice1 + dice2;
     final int futurePosition = playerToPlay.futurePosition(roll);
     final int isLadderTile = board.isLadderTile(futurePosition);
+    final int isSnakeTile = board.isSnakeTile(futurePosition);
 
     if (isLadderTile > 0) {
       position = isLadderTile;
+    } else if (isSnakeTile > 0) {
+      position = isSnakeTile;
     } else {
       position = roll;
     }

@@ -47,10 +47,10 @@ class Board {
     int res = -1;
 
     _snake.forEach((snake, snakeTiles) {
-      int snakeBottomTile = snakeTiles[0];
-      int snakeTopTile = snakeTiles[1];
+      int snakeHead = snakeTiles[0];
+      int snakeTail = snakeTiles[1];
 
-      if (position == snakeBottomTile) res = snakeTopTile;
+      if (position == snakeHead) res = snakeTail;
     });
 
     return res;
