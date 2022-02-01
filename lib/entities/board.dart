@@ -26,8 +26,8 @@ class Board {
     '10': [99, 80],
   };
 
-  /// return positive int with ladder final tile if position can climb ladder
-  /// return negative int if position can not climb ladder
+  /// return positive int if player position can climb ladder
+  /// return negative int if player position can not climb ladder
   int isLadderTile(int position) {
     int res = -1;
 
@@ -41,8 +41,8 @@ class Board {
     return res;
   }
 
-  /// return positive int with snake final tile if position can slide snake
-  /// return negative int if position can not slide snake
+  /// return positive int if player position can slide snake
+  /// return negative int if player position can not slide snake
   int isSnakeTile(int position) {
     int res = -1;
 
