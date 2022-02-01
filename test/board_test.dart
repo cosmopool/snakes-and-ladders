@@ -170,4 +170,13 @@ void main() {
     expect(finalPosition, 80);
   });
 
+  test('should return exceeding tiles when hit board limit', () {
+    Board board = Board();
+
+    expect(board.boardLimit(110), 90);
+    expect(board.boardLimit(150), 50);
+    expect(board.boardLimit(105), 95);
+    expect(board.boardLimit(130), 70);
+  });
+
 }
