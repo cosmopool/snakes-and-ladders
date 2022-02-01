@@ -1,14 +1,17 @@
+import 'dart:math';
+
 class Player {
+  final int _maxNumId = 1000000000;
   late int _id;
   late int _position;
   
-  Player(int id) {
-    _id = id;
+  Player() {
+    _id = Random().nextInt(_maxNumId);
     _position = 0;
   }
 
-  Player.onPosition(int pos, int id){
-    _id = id;
+  Player.onPosition(int pos){
+    _id = Random().nextInt(_maxNumId);
     _position = pos;
   }
 
