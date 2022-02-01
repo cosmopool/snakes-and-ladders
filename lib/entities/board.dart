@@ -13,6 +13,19 @@ class Board {
     '11': [87, 94],
   };
 
+  static const Map<String, List<int>> _snake = {
+    '1': [16, 6],
+    '2': [46, 25],
+    '3': [49, 11],
+    '4': [62, 19],
+    '5': [64, 60],
+    '6': [74, 53],
+    '7': [89, 68],
+    '8': [92, 88],
+    '9': [95, 75],
+    '10': [99, 80],
+  };
+
   /// return positive int with ladder final tile if position can climb ladder
   /// return negative int if position can not climb ladder
   int isLadderTile(int position) {
@@ -23,6 +36,21 @@ class Board {
       int ladderTopTile = ladderTiles[1];
 
       if (position == ladderBottomTile) res = ladderTopTile;
+    });
+
+    return res;
+  }
+
+  /// return positive int with snake final tile if position can slide snake
+  /// return negative int if position can not slide snake
+  int isSnakeTile(int position) {
+    int res = -1;
+
+    _snake.forEach((snake, snakeTiles) {
+      int snakeBottomTile = snakeTiles[0];
+      int snakeTopTile = snakeTiles[1];
+
+      if (position == snakeBottomTile) res = snakeTopTile;
     });
 
     return res;

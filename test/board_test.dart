@@ -90,5 +90,84 @@ void main() {
     expect(finalPosition, 94);
   });
 
-}
+  test('should return snake tail tile position 6 given roll position 16', () {
+    int rollPosition = 16;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
 
+    expect(finalPosition, 6);
+  });
+
+  test('should return snake tail tile position 25 given roll position 46', () {
+    int rollPosition = 46;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 25);
+  });
+
+  test('should return snake tail tile position 11 given roll position 49', () {
+    int rollPosition = 49;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 11);
+  });
+
+  test('should return snake tail tile position 19 given roll position 62', () {
+    int rollPosition = 62;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 19);
+  });
+
+  test('should return snake tail tile position 60 given roll position 64', () {
+    int rollPosition = 64;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 60);
+  });
+
+  test('should return snake tail tile position 53 given roll position 74', () {
+    int rollPosition = 74;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 53);
+  });
+
+  test('should return snake tail tile position 68 given roll position 89', () {
+    int rollPosition = 89;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 68);
+  });
+
+  test('should return snake tail tile position 88 given roll position 92', () {
+    int rollPosition = 92;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 88);
+  });
+
+  test('should return snake tail tile position 75 given roll position 95', () {
+    int rollPosition = 95;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 75);
+  });
+
+  test('should return snake tail tile position 80 given roll position 99', () {
+    int rollPosition = 99;
+    Board board = Board();
+    int finalPosition = board.isSnakeTile(rollPosition);
+
+    expect(finalPosition, 80);
+  });
+
+}
