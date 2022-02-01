@@ -7,7 +7,8 @@ class Player {
     _position = 0;
   }
 
-  Player.onPosition(int pos){
+  Player.onPosition(int pos, int id){
+    _id = id;
     _position = pos;
   }
 

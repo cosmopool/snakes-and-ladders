@@ -3,14 +3,14 @@ import 'package:snakes_and_ladders/entities/player.dart';
 
 void main() {
   test('should return future position given a positive roll', () {
-    Player player = Player.onPosition(0);
+    Player player = Player.onPosition(0, 1);
     int futurePosition = player.futurePosition(10);
 
     expect(futurePosition, 10);
   });
 
   test('should remain on same tile given a negative roll', () {
-    Player player = Player.onPosition(0);
+    Player player = Player.onPosition(0, 1);
     int futurePosition = player.futurePosition(10);
 
     expect(futurePosition, 10);
