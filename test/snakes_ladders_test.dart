@@ -7,7 +7,7 @@ void main() {
   Board board = Board();
 
   test('should increase player position by 36 when hit ladder 1 tile', () {
-    Player player = Player.onPosition(0, 1);
+    Player player = Player.onPosition(0);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 2
@@ -17,7 +17,7 @@ void main() {
   });
 
   test('should increase player position by 7 when hit ladder 2 tile', () {
-    Player player = Player.onPosition(0, 1);
+    Player player = Player.onPosition(0);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 7
@@ -27,7 +27,7 @@ void main() {
   });
 
   test('should decrease player position by 10 when hit snake 1 tile', () {
-    Player player = Player.onPosition(14, 1);
+    Player player = Player.onPosition(14);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 16
@@ -37,7 +37,7 @@ void main() {
   });
 
   test('should decrease player position by 21 when hit snake 2 tile', () {
-    Player player = Player.onPosition(42, 1);
+    Player player = Player.onPosition(42);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 46
@@ -47,7 +47,7 @@ void main() {
   });
 
   test('player sould remain on empty tile when no title left to move', () {
-    Player player = Player.onPosition(0, 1);
+    Player player = Player.onPosition(0);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 3
@@ -57,7 +57,7 @@ void main() {
   });
 
   test('should return true on double dice', () {
-    Player player = Player(1);
+    Player player = Player();
     SnakesLadders game = SnakesLadders(board, player, player);
     
     final isDoubleDice = game.isDoubleDice(4, 4);
@@ -65,7 +65,7 @@ void main() {
   });
 
   test('should return false on non double dice', () {
-    Player player = Player(1);
+    Player player = Player();
     SnakesLadders game = SnakesLadders(board, player, player);
     
     final isDoubleDice = game.isDoubleDice(4, 3);
@@ -73,8 +73,8 @@ void main() {
   });
 
   test('should play again on double dice', () {
-    Player player1 = Player(1);
-    Player player2 = Player(2);
+    Player player1 = Player();
+    Player player2 = Player();
     SnakesLadders game = SnakesLadders(board, player1, player2);
 
     // go to tile 46
@@ -84,8 +84,8 @@ void main() {
   });
 
   test('should pass turn on no double dice', () {
-    Player player1 = Player(1);
-    Player player2 = Player(2);
+    Player player1 = Player();
+    Player player2 = Player();
     SnakesLadders game = SnakesLadders(board, player1, player2);
 
     game.play(1, 2);
@@ -94,7 +94,7 @@ void main() {
   });
 
   test('position should never be greater then 100', () {
-    Player player = Player.onPosition(94, 1);
+    Player player = Player.onPosition(94);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(8, 2);
@@ -103,7 +103,7 @@ void main() {
   });
 
   test('should win the game when hit the final tile with no double dice', () {
-    Player player = Player.onPosition(97, 1);
+    Player player = Player.onPosition(97);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(1, 2);
@@ -112,7 +112,7 @@ void main() {
   });
 
   test('should win the game when hit the final tile with double dice', () {
-    Player player = Player.onPosition(96, 1);
+    Player player = Player.onPosition(96);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(2, 2);
@@ -121,7 +121,7 @@ void main() {
   });
 
   test('should not be able to move when some player has won', () {
-    Player player = Player.onPosition(96, 1);
+    Player player = Player.onPosition(96);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(2, 2);
@@ -131,7 +131,7 @@ void main() {
   });
 
   test('should reset winner player on newGame', () {
-    Player player = Player.onPosition(96, 1);
+    Player player = Player.onPosition(96);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(2, 2);
@@ -142,7 +142,7 @@ void main() {
   });
 
   test('should reset player position on newGame', () {
-    Player player = Player.onPosition(96, 1);
+    Player player = Player.onPosition(96);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     game.play(2, 2);
