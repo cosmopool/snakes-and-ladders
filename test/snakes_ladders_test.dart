@@ -130,4 +130,25 @@ void main() {
     expect(player.position, 100);
   });
 
+  test('should reset winner player on newGame', () {
+    Player player = Player.onPosition(96, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    game.play(2, 2);
+    expect(game.winner, player.id);
+    game.newGame();
+
+    expect(game.winner, 0);
+  });
+
+  test('should reset player position on newGame', () {
+    Player player = Player.onPosition(96, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    game.play(2, 2);
+    int oldPosition = player.position;
+    game.newGame();
+
+    expect((player.position != oldPosition), true);
+  });
 }
