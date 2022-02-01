@@ -6,9 +6,12 @@ class SnakesLadders {
   late Player player1;
   late Player player2;
   late Board board;
+  int _winner = 0;
   int _playerTurn = 1;
 
   SnakesLadders(this.board, this.player1, this.player2);
+
+  int get winner => _winner;
 
   Player _selectPlayer() {
     return (_playerTurn == 1) ? player1 : player2;
@@ -37,6 +40,8 @@ class SnakesLadders {
   }
 
   void play(int dice1, int dice2) {
+    if (_winner != 0) return;
+
     final Player playerToPlay = _selectPlayer();
     int position = playerToPlay.position;
     final int roll = dice1 + dice2;
@@ -54,6 +59,11 @@ class SnakesLadders {
     }
 
     playerToPlay.move(position);
-    _switchPlayerTurn(isDouble);
+    if (playerToPlay.position == 100) {
+      _winner = playerToPlay.id;
+    } else {
+      _switchPlayerTurn(isDouble);
+    }
+  }
   }
 }
