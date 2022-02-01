@@ -56,11 +56,27 @@ void main() {
     expect(game.player1.position, 3);
   });
 
+  test('should return true on double dice', () {
+    Player player = Player(1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+    
+    final isDoubleDice = game.isDoubleDice(4, 4);
+    expect(isDoubleDice, true);
+  });
+
+  test('should return false on non double dice', () {
+    Player player = Player(1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+    
+    final isDoubleDice = game.isDoubleDice(4, 3);
+    expect(isDoubleDice, false);
+  });
+
   test('should play again on double dice', () {
     Player player1 = Player(1);
     Player player2 = Player(2);
     SnakesLadders game = SnakesLadders(board, player1, player2);
-    
+
     // go to tile 46
     game.play(1, 1);
 
