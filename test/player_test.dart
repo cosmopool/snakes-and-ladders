@@ -32,6 +32,11 @@ void main() {
     expect(player.id, 1);
   });
 
-  // test('', () {});
+  test('should be at position 0 on resetPosition', () {
+    Player player = Player.onPosition(80, 1);
+    player.resetPosition();
+
+    expect(player.position, 0);
+  });
 }
 
