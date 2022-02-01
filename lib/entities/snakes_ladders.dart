@@ -68,5 +68,11 @@ class SnakesLadders {
       _switchPlayerTurn(isDouble);
     }
   }
+
+  void newGame() {
+    player1.resetPosition();
+    player2.resetPosition();
+    _winner = 0;
+    _playerTurn = 1;
   }
 }
