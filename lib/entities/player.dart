@@ -22,4 +22,8 @@ class Player {
   int futurePosition(int roll) {
     return _position += roll;
   }
+
+  void resetPosition() {
+    _position = 0;
+  }
 }
