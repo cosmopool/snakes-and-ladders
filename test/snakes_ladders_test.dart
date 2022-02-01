@@ -26,7 +26,6 @@ void main() {
     expect(game.player1.position, 3);
   });
 
-  test('should decrease player position when hit final tile and still has tiles left to walk', () {});
   test('should increase player position by 7 when hit ladder 2 tile', () {
     Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
@@ -56,7 +55,8 @@ void main() {
 
     expect(game.player1.position, 25);
   });
-  test('', () {});
-  test('', () {});
+
   test('should play again on double roll', () {});
+
+  test('should decrease player position when hit final tile and still has tiles left to walk', () {});
 }

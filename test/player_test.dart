@@ -22,9 +22,6 @@ void main() {
     expect(player.id, 1);
   });
 
-  test('', () {});
-  test('', () {});
-
   test('should return player number 2', () {
     Player player = Player(2);
     expect(player.id, 2);
@@ -34,5 +31,7 @@ void main() {
     Player player = Player(1);
     expect(player.id, 1);
   });
+
+  // test('', () {});
 }
 
