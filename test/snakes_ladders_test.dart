@@ -102,8 +102,32 @@ void main() {
     expect(player.position, 96);
   });
 
+  test('should win the game when hit the final tile with no double dice', () {
+    Player player = Player.onPosition(97, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
 
-  test('should win the game when hit the final tile with double dice', () {});
+    game.play(1, 2);
 
-  test('should win the game when hit the final tile with no double dice', () {});
+    expect(game.winner, player.id);
+  });
+
+  test('should win the game when hit the final tile with double dice', () {
+    Player player = Player.onPosition(96, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    game.play(2, 2);
+
+    expect(game.winner, player.id);
+  });
+
+  test('should not be able to move when some player has won', () {
+    Player player = Player.onPosition(96, 1);
+    SnakesLadders game = SnakesLadders(board, player, player);
+
+    game.play(2, 2);
+    game.play(2, 2);
+
+    expect(player.position, 100);
+  });
+
 }
