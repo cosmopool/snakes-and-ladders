@@ -7,7 +7,7 @@ void main() {
   Board board = Board();
 
   test('should increase player position by 36 when hit ladder 1 tile', () {
-    Player player = Player.onPosition(0);
+    Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
     
     // go to tile 2
@@ -17,7 +17,7 @@ void main() {
   });
 
   test('player sould remain on empty tile when no title left to walk', () {
-    Player player = Player.onPosition(0);
+    Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
 
     // go to tile 3
@@ -28,7 +28,7 @@ void main() {
 
   test('should decrease player position when hit final tile and still has tiles left to walk', () {});
   test('should increase player position by 7 when hit ladder 2 tile', () {
-    Player player = Player.onPosition(0);
+    Player player = Player.onPosition(0, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
     
     // go to tile 7
@@ -38,7 +38,7 @@ void main() {
   });
 
   test('should decrease player position by 10 when hit snake 1 tile', () {
-    Player player = Player.onPosition(14);
+    Player player = Player.onPosition(14, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
     
     // go to tile 16
@@ -48,7 +48,7 @@ void main() {
   });
 
   test('should decrease player position by 21 when hit snake 2 tile', () {
-    Player player = Player.onPosition(42);
+    Player player = Player.onPosition(42, 1);
     SnakesLadders game = SnakesLadders(board, player, player);
     
     // go to tile 46

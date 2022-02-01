@@ -16,7 +16,12 @@ void main() {
     expect(futurePosition, 10);
   });
 
-  test('', () {});
+  test('should have id when instantiated via onPosition constructor', () {
+    Player player = Player.onPosition(0, 1);
+
+    expect(player.id, 1);
+  });
+
   test('', () {});
   test('', () {});
 
