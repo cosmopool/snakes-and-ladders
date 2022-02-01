@@ -55,4 +55,13 @@ class Board {
 
     return res;
   }
+
+  int boardLimit(int futurePosition) {
+    if (futurePosition > 100) {
+      int difference = futurePosition - 100;
+      return 100 - difference;
+    }
+
+    return futurePosition;
+  }
 }
