@@ -45,7 +45,10 @@ class SnakesLadders {
     final Player playerToPlay = _selectPlayer();
     int position = playerToPlay.position;
     final int roll = dice1 + dice2;
-    final int futurePosition = playerToPlay.futurePosition(roll);
+
+    int futurePosition = playerToPlay.futurePosition(roll);
+    futurePosition = board.boardLimit(futurePosition);
+
     final int isLadderTile = board.isLadderTile(futurePosition);
     final int isSnakeTile = board.isSnakeTile(futurePosition);
     final bool isDouble = isDoubleDice(dice1, dice2);
@@ -55,7 +58,7 @@ class SnakesLadders {
     } else if (isSnakeTile > 0) {
       position = isSnakeTile;
     } else {
-      position = roll;
+      position = futurePosition;
     }
 
     playerToPlay.move(position);
