@@ -7,25 +7,30 @@ class SnakesLadders {
   late Player player2;
   late Board board;
   int _winner = 0;
-  int _playerTurn = 1;
+  late int _playerTurn;
 
-  SnakesLadders(this.board, this.player1, this.player2);
+  SnakesLadders(this.board, this.player1, this.player2) {
+    _playerTurn = player1.id;
+  }
 
   int get winner => _winner;
 
-  Player _selectPlayer() {
-    return (_playerTurn == 1) ? player1 : player2;
+  Player selectPlayer() {
+    return (_playerTurn == player1.id) ? player1 : player2;
   }
 
-  void _switchPlayerTurn(bool isDouble) {
-    if (isDouble && _playerTurn == 1) {
-      _playerTurn = 1;
-    } else if (isDouble && _playerTurn == 2) {
-      _playerTurn = 2;
-    } else if (_playerTurn == 1) {
-      _playerTurn = 2;
-    } else if (_playerTurn == 2) {
-      _playerTurn = 1;
+  void switchPlayerTurn(bool isDouble) {
+    final int p1 = player1.id;
+    final int p2 = player2.id;
+
+    if (isDouble && _playerTurn == p1) {
+      _playerTurn = p1;
+    } else if (isDouble && _playerTurn == p2) {
+      _playerTurn = p2;
+    } else if (_playerTurn == p1) {
+      _playerTurn = p2;
+    } else if (_playerTurn == p2) {
+      _playerTurn = p1;
     }
   }
 
@@ -42,7 +47,7 @@ class SnakesLadders {
   void play(int dice1, int dice2) {
     if (_winner != 0) return;
 
-    final Player playerToPlay = _selectPlayer();
+    final Player playerToPlay = selectPlayer();
     int position = playerToPlay.position;
     final int roll = dice1 + dice2;
 
@@ -65,7 +70,7 @@ class SnakesLadders {
     if (playerToPlay.position == 100) {
       _winner = playerToPlay.id;
     } else {
-      _switchPlayerTurn(isDouble);
+      switchPlayerTurn(isDouble);
     }
   }
 

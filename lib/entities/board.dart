@@ -56,6 +56,10 @@ class Board {
     return res;
   }
 
+  int isFinalTile(int position) {
+    return (position == 100) ? 100 : -1;
+  }
+
   int boardLimit(int futurePosition) {
     if (futurePosition > 100) {
       int difference = futurePosition - 100;
