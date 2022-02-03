@@ -14,8 +14,8 @@ class ButtonsAreaWidget extends StatefulWidget {
 class _ButtonsAreaWidgetState extends State<ButtonsAreaWidget> {
   @override
   Widget build(BuildContext context) {
-    final Image yellowAvatar = Image.asset('assets/avatar_yellow.png');
-    final Image greenAvatar = Image.asset('assets/avatar_green.png');
+    final Image yellowAvatar = Image.asset('assets/avatar_yellow_play.png');
+    final Image greenAvatar = Image.asset('assets/avatar_green_play.png');
     final Image yellowAvatarTurn = Image.asset('assets/avatar_yellow_turn.png');
     final Image greenAvatarTurn = Image.asset('assets/avatar_green_turn.png');
 
@@ -28,27 +28,6 @@ class _ButtonsAreaWidgetState extends State<ButtonsAreaWidget> {
     Image currentGreenImage =
         (playerTurn == player2.id) ? greenAvatarTurn : greenAvatar;
     final dice = context.read<DiceProvider>();
-    bool gameIsOver = context.watch<CobrasEscadas>().gameIsOverMsg;
-
-    print('gameover: $gameIsOver');
-    if (gameIsOver) {
-      String _winner = (winner == player1.id) ? 'Amarelo' : 'Verde';
-      showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: const Text("O Jogo acabou!"),
-          content: Text("$_winner Ganhou o jogo, inicie um novo jogo"),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                context.read<CobrasEscadas>().newGame();
-              },
-              child: Text("Iniciar novo jogo"),
-            ),
-          ],
-        ),
-      );
-    }
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,

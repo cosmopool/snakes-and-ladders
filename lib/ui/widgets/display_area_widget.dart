@@ -38,7 +38,7 @@ class _DisplayAreaWidgetState extends State<DisplayAreaWidget> {
 
     return Container(
       height: screenHeight - screenHeight * .2 - screenWidth,
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * .1),
+      // padding: EdgeInsets.symmetric(horizontal: screenWidth * .1),
       child: Stack(
         children: [
           MessageContainerWidget(
@@ -50,12 +50,16 @@ class _DisplayAreaWidgetState extends State<DisplayAreaWidget> {
             controller: context.watch<CobrasEscadas>().ladderTileMsg,
           ),
           MessageContainerWidget(
-            message: 'Jogador $playerString \n Venceu!',
+            message: 'Jogador $playerString Venceu!',
             controller: context.watch<CobrasEscadas>().winnerMsg,
           ),
           MessageContainerWidget(
             message: 'O jogo acabou!',
             controller: context.watch<CobrasEscadas>().gameIsOverMsg,
+          ),
+          MessageContainerWidget(
+            message: 'Dados iguais! jogue novamente',
+            controller: context.watch<CobrasEscadas>().doubleMsg,
           ),
           // MessageContainerWidget(
           //   // TODO: dice roll
@@ -63,11 +67,11 @@ class _DisplayAreaWidgetState extends State<DisplayAreaWidget> {
           //   controller: context.watch<CobrasEscadas>().showDiceMsg,
           // ),
           // MessageContainerWidget(
-          //   message: '$playerString está \n na casa ${player.position}',
+          //   message: '$playerString está na casa ${player.position}',
           //   controller: context.watch<CobrasEscadas>().playerTurnMsg,
           // ),
           // MessageContainerWidget(
-          //   message: 'Eh a vez do \n $playerString',
+          //   message: 'Eh a vez do $playerString',
           //   controller: context.watch<CobrasEscadas>().playerTurnMsg,
           // ),
         ],

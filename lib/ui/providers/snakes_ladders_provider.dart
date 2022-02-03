@@ -12,6 +12,7 @@ enum Message {
   winner,
   dice,
   gameOver,
+  double,
   playerTile
 }
 
@@ -28,6 +29,7 @@ class CobrasEscadas extends ChangeNotifier {
   bool showDiceMsg = false;
   bool gameIsOverMsg = false;
   bool playerTileMsg = false;
+  bool doubleMsg = false;
   int diceRoll = 0;
 
   CobrasEscadas(this._game, this._board) {
@@ -73,6 +75,7 @@ class CobrasEscadas extends ChangeNotifier {
     winnerMsg = false;
     showDiceMsg = false;
     gameIsOverMsg = false;
+    doubleMsg = false;
   }
 
   void sendMessage(Message msg) {
@@ -99,6 +102,9 @@ class CobrasEscadas extends ChangeNotifier {
       case Message.playerTile:
         playerTileMsg = true;
         break;
+      case Message.double:
+        doubleMsg = true;
+        break;
     }
 
     notifyListeners();
@@ -109,11 +115,13 @@ class CobrasEscadas extends ChangeNotifier {
     const durationSnakeLadder = Duration(milliseconds: 800);
     const durationWalk = Duration(milliseconds: 400);
     const durationMessage = Duration(seconds: 2);
+    clearMessages();
 
     if (_winner == 0) {
       final int roll = dice1 + dice2;
       diceRoll = roll;
-      sendMessage(Message.playerTile);
+
+      if (dice1 == dice2) sendMessage(Message.double);
       // await Future.delayed(durationMessage);
       final Player playerToPlay = _game.selectPlayer();
 

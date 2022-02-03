@@ -65,8 +65,10 @@ flutter:
   assets:
     - assets/avatar_yellow.png
     - assets/avatar_yellow_turn.png
+    - assets/avatar_yellow_play.png
     - assets/avatar_green.png
     - assets/avatar_green_turn.png
+    - assets/avatar_green_play.png
     - assets/tile_background.png
     - assets/board.png
 

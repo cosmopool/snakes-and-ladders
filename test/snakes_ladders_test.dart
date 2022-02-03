@@ -80,7 +80,7 @@ void main() {
     // go to tile 46
     game.play(1, 1);
 
-    expect(game.playerTurn, 1);
+    expect(game.playerTurn, player1.id);
   });
 
   test('should pass turn on no double dice', () {
@@ -90,7 +90,7 @@ void main() {
 
     game.play(1, 2);
 
-    expect(game.playerTurn, 2);
+    expect(game.playerTurn, player2.id);
   });
 
   test('position should never be greater then 100', () {

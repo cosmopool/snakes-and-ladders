@@ -25,6 +25,7 @@ class _MessageContainerWidgetState extends State<MessageContainerWidget> {
       duration: const Duration(seconds: 1),
       curve: Curves.elasticOut,
       child: SizedBox(
+        width: screenWidth * .9,
         child: AutoSizeText(
           widget.message,
           style: const TextStyle(
