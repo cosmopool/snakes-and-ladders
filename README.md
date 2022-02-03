@@ -1,4 +1,4 @@
-# Desafio Técnico 1
+# Desafio Técnico 2
 
 Segundo desafio técnico: programar o jogo cobras e escadas.
 
