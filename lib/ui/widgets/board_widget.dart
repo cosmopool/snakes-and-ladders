@@ -29,12 +29,11 @@ class _BoardWidgetState extends State<BoardWidget> {
     double tileSize = _size / 10;
     int animationDuration = 400;
 
-    Player player1 = context.watch<CobrasEscadas>().player1;
-    Player player2 = context.watch<CobrasEscadas>().player2;
+    // Player player1 = context.watch<CobrasEscadas>().player1;
+    // Player player2 = context.watch<CobrasEscadas>().player2;
+    int player1pos = context.watch<CobrasEscadas>().player1.position;
+    int player2pos = context.watch<CobrasEscadas>().player2.position;
     List<Tile> tiles = context.watch<BoardProvider>().boardTiles;
-
-    Tile player1Position = context.watch<BoardProvider>().player1Position;
-    Tile player2Position = context.watch<BoardProvider>().player2Position;
 
     return Container(
       height: _size,
@@ -47,20 +46,18 @@ class _BoardWidgetState extends State<BoardWidget> {
             duration: Duration(milliseconds: animationDuration),
             child: PlayerWidget(
               image: Image.asset('assets/avatar_yellow.png'),
-              position: player1Position,
             ),
-            bottom: tiles[player1.position].y * tileSize,
-            left: tiles[player1.position].x * tileSize,
+            bottom: tiles[player1pos].y * tileSize,
+            left: tiles[player1pos].x * tileSize,
             curve: Curves.fastOutSlowIn,
           ),
           AnimatedPositioned(
             duration: Duration(milliseconds: animationDuration),
             child: PlayerWidget(
               image: Image.asset('assets/avatar_green.png'),
-              position: player2Position,
             ),
-            bottom: tiles[player2.position].y * tileSize,
-            left: tiles[player2.position].x * tileSize,
+            bottom: tiles[player2pos].y * tileSize,
+            left: tiles[player2pos].x * tileSize,
             curve: Curves.fastOutSlowIn,
           ),
         ],

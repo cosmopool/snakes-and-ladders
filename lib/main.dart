@@ -19,13 +19,28 @@ void main() {
 
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => BoardProvider(board, player1, player2)),
+      ChangeNotifierProvider(
+          create: (_) => BoardProvider(board, player1, player2)),
       ChangeNotifierProvider(create: (_) => CobrasEscadas(game, board)),
       ChangeNotifierProvider(create: (_) => DiceProvider(dice)),
     ],
-    child: const MaterialApp(
+    child: MaterialApp(
       title: 'Cobras e Escadas',
-      home: MainPage(),
+      theme: ThemeData(
+        // Define the default brightness and colors.
+        brightness: Brightness.dark,
+        primaryColor: Colors.lightBlue[800],
+
+        // Define the default font family.
+        fontFamily: 'Georgia',
+
+        // Define the default `TextTheme`. Use this to specify the default
+        // text styling for headlines, titles, bodies of text, and more.
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
+      ),
+      home: const MainPage(),
     ),
   ));
 }

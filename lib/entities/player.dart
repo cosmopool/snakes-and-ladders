@@ -29,4 +29,12 @@ class Player {
   void resetPosition() {
     _position = 0;
   }
+
+  void increasePosition() {
+    _position++;
+  }
+
+  void decreasePosition() {
+    _position--;
+  }
 }

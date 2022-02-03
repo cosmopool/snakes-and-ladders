@@ -33,7 +33,11 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.lightBlue[900],
+      // color: Colors.lightBlue[900],
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/tile_background.png'),
+              fit: BoxFit.cover)),
       child: Column(
         children: const [
           BoardWidget(),
